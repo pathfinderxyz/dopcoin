@@ -38,7 +38,7 @@
                         <div class="login-body">
                          
                             
-                           <img src="img/mapas.png" align= "left" width="100%"><br><br>
+                           <img src="img/mapas.png" align= "left" width="90%"><br><br>
                              <div class="login-col"><br>
                                 
                                    <span style=color:"#ffffff";>&nbsp; &nbsp;</span> 
@@ -70,9 +70,7 @@
                                  }
                              ?>
                               </div>
-                           
                         </div>
-                        
                               
                        
                     </div>
