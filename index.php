@@ -19,7 +19,7 @@
     <!-- CSS App -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
-    <link rel="shortcut icon" href="img/Dop-Logo-RoundedSquare.png"/>
+    <link rel="shortcut icon" href="img/icon2.png"/>
 </head>
 */<style>
    body {
