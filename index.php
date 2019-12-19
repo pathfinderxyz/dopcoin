@@ -19,7 +19,7 @@
     <!-- CSS App -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
-    <link rel="shortcut icon" href="img/mapas.png"/>
+    <link rel="shortcut icon" href="img/dopcoin.png"/>
 </head>
 */<style>
    body {
