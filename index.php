@@ -23,7 +23,7 @@
 </head>
 */<style>
    body {
-    background: url("img/banner/f2.jpg") no-repeat center 10%;
+    background: url("img/23.jpg") no-repeat center 10%;
    }
 </style>/*
 
