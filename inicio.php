@@ -60,7 +60,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Symaps</title>
+    <title>Dashboard Dopcoin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
@@ -80,7 +80,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/themes/flat-blue.css">
     <!-- icono del sistema -->
-    <link rel="shortcut icon" href="img/ICONO-AMARILLO.png"/>
+    <link rel="shortcut icon" href="img/icon2.png"/>
     <style type="text/css">
       .logov{
         margin-left: 15px;
@@ -106,7 +106,7 @@
                             <i class="fa fa-bars icon"></i>
                         </button>
                         <ol class="breadcrumb navbar-breadcrumb">
-                            <li class="active">Geolocalizacion de imagenes</li>
+                            <li class="active">Crytocurrency Exchange</li>
                         </ol>
                         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                             <i class="fa fa-th icon"></i>
@@ -115,6 +115,12 @@
 
                       <!--- menu derecho -->
                     <ul class="nav navbar-nav navbar-right">
+                         <li>
+                        <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">Tasa de cambio</a>
+                        </li>
+                        <li>
+                        <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">Wallet</a>
+                        </li>
                         <li>
                         <a href="#" class="mitooltip" title="Usuario Logeado" data-placement="top"><?php echo $_SESSION['encargado'];?></a>
                         </li>
@@ -152,7 +158,7 @@
                                     <ul class="list-group notifications">
                                         <a href="?page=asignar">
                                             <li class="list-group-item">
-                                                <span class="badge info"><?php echo $sp['total1']; ?></span> <font color="red"><i class="fa fa-exclamation-circle icon"></i></font> Envios en transito
+                                                <span class="badge info"><?php echo $sp['total1']; ?></span> <font color="red"><i class="fa fa-exclamation-circle icon"></i></font> Compras realizadas
                                             </li>
                                         </a>
                                         
@@ -175,7 +181,7 @@
                     <div class="side-menu-container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">
-                                <div class="logov"><img src="img/ICONO-BLANCO.png" width="30px"/>SYMAPS</div>
+                                <div class="logov"><img src="img/icon3.png" width="30px"/> Dopcoin</div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                 <i class="fa fa-times icon"></i>
@@ -188,55 +194,58 @@
                                              <span class="icon glyphicon glyphicon-home"></span><span class="title">Inicio</span>
                                          </a>
                                      </li>
+
+                            
                                  <?php  
                                   if ($_SESSION['rol'] == 'admin') {
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-element">
-                                             <span class="icon glyphicon glyphicon-map-marker"></span><span class="title">Localizar</span>
+                                             <span class="icon glyphicon glyphicon-user"></span><span class="title">Perfil</span>
                                          </a>
                                          <!-- Dropdown level 1 -->
                                          <div id="dropdown-element" class="panel-collapse collapse">
                                          <div class="panel-body">
                                              <ul class="nav navbar-nav">
                                                 
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-plus"></i>&nbsp;&nbsp;&nbsp;Agregar</a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;&nbsp;Datos</a>
                                                  </li> 
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Modificar</a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-ok"></i>&nbsp;&nbsp;&nbsp;Verificar</a>
                                                  </li>   
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-search"></i>&nbsp;&nbsp;&nbsp;Ubicar </a>
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Historial</a>
                                                  </li>     
                                           </div>
                                          </div>
                                      </li>';
                                          }
                                  ?>
-                                 
-                             
-                        
-
-                            
-                            
-                            <!-- Dropdown-->
-                            <?php  
-                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne') {
-                                     echo '
-
-                            <li class="panel panel-default dropdown">
-                                
-                                    <a href="#"><span class="icon glyphicon glyphicon-globe"></span><span class="title">Georeferencia</span></a>
-                                
-                                
-                            </li>';
-                                }
-                            ?>
-
-                             <li class="panel panel-default dropdown ">
+                                 <li class="panel panel-default dropdown ">
                                          <a href="#">
-                                             <span class="icon glyphicon glyphicon-object-align-left"></span><span class="title">Estadisticas</span>
+                                             <span class="icon glyphicon glyphicon-star"></span><span class="title">VIP</span>
                                          </a>
-                            </li>
-                            
-                    
+                            </li> 
+                             
+                                 <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo '<li class="panel panel-default dropdown ">
+                                         <a data-toggle="collapse" href="#dropdown-elementt">
+                                             <span class="icon glyphicon glyphicon-transfer"></span><span class="title">Transacciones</span>
+                                         </a>
+                                         <!-- Dropdown level 1 -->
+                                         <div id="dropdown-elementt" class="panel-collapse collapse">
+                                         <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-credit-card"></i>&nbsp;&nbsp;&nbsp;Comprar</a>
+                                                 </li> 
+                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-usd"></i>&nbsp;&nbsp;&nbsp;Vender</a>
+                                                 </li>     
+                                          </div>
+                                         </div>
+                                     </li>';
+                                         }
+                                 ?>
+                                
+                        
                              
                             <!-- Dropdown-->
                             <li class="panel panel-default dropdown">
@@ -263,7 +272,7 @@
 
                <footer class="app-footer">
                   <div class="wrapper">
-                      <span> </span> © Fast2send 2019 Copyright.
+                      <span> </span> © Dopcoin 2020 Todos los derechos reservados.
                   </div>
               </footer>
              </div>

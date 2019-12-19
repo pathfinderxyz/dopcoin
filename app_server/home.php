@@ -1,6 +1,6 @@
  <div class="page-title">
-                        <span class="title">Symaps</span>
-                        <div class="description">Sistema para imagenes georeferenciadas</div>
+                        <span class="title">Dopcoin</span>
+                        <div class="description">Facil, rapido y seguro...</div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        Symaps fue creado para ubicar georeferenciar lugares especificos en el planeta<br><br>
+                                        Somos la plataforma oficial para intercambiar Dopcoin en Republica Dominicana.<br><br>
  
                                         Elija la opcion que desea realizar:<br><br>
 
@@ -26,25 +26,25 @@
 
                                          <li>
                                             <a href="#">
-                                            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Maps</span></a>
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Ver Perfil</span></a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                            <span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Ver estadisticas</span>
+                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">VIP</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Buscar</span>
+                                            <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Transacciones</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                                            <span class="glyphicon-class">Geolocalizar</span>
+                                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                            <span class="glyphicon-class">Historial</span>
                                             </a>
                                         </li>
                                     </ul>

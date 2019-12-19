@@ -23,8 +23,30 @@
 </head>
 */<style>
    body {
-    background: url("img/banner/22.jpg");
+    background: url("img/banner/22.jpg") no-repeat center 10%;
    }
+   .flat-blue .login-box .login-form .login-body {
+    background-color: transparent;
+   }
+   .flat-blue a:hover {
+    color: #2fadb3;
+}
+.flat-blue a {
+    color: #fff;
+}
+   .titulo-login{
+    color: #ffffff;
+    text-align: center;
+   }
+   .titulo-login2{
+    color: #ffffff;
+    text-align: left;
+   }
+   .login-page .login-button .btn {
+    
+    width: 100%;
+     }
+   
 </style>/*
 
 <body class="flat-blue login-page">
@@ -37,29 +59,33 @@
                     <div class="col-sm-12">
                         <div class="login-body">
                          
-                            
-                           <img src="img/mapas.png" align= "left" width="90%"><br><br>
+                           
                              <div class="login-col"><br>
                                 
-                                   <span style=color:"#ffffff";>&nbsp; &nbsp;</span> 
+                        
+                                    <h2 class="titulo-login">Entrar en Dopcoin</h2>
+                                    <p class="titulo-login">Introduzca sus credenciales</p>
             
                              </div>
 
                             <form  action="login/autenticacion.php" method="post" role="form" id="form_login">
                                 <div class="control">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuario" />
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuario o correo" />
                                 </div>
                                 <div class="control">
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
                                 </div>
+                                  <p class="titulo-login2"><a href="#">Olvido su password?</a></p>
                                 <div class="login-button text-center">
-                                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                                    <button type="submit" class="btn btn-info">Ingresar</button>
                                     <div class="progress hidden" id="login-progress">
                                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
                                          Ingresando...
                                        </div>
-                                    </div>
+                                    </div><br><br>
+                                    <p class="titulo-login"><a href="#">Crear una nueva cuenta</a></p>
                                 </div>
+
                             </form><br><br>
                             <div>
                                <?php
