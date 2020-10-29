@@ -1,3 +1,9 @@
+<?php
+
+$id=$_GET['id'];
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -58,47 +64,44 @@
                     
                     <div class="col-sm-12">
                         <div class="login-body">
-                         <?php
-                                 if ($_GET["errorusuario"]=="si"){
-                             ?>
-                                 <div class="success"><strong style="color: #ffffff;margin-left: 80px;background-color: #B71C1C;padding: 8px;border-radius: 3px;">¡Datos incorrectos!</strong></div>
-                           <?php  
-                               }elseif ($_GET["registro"]=="exitoso") {
-                                ?>
-                                   <br><div class="success"><strong style="color: #ffffff;margin-left: 80px;background-color: #5baf30;padding: 8px;border-radius: 3px;">¡registro exitoso!</strong></div>
-                            <?php 
-                                 }  
-                             ?>
+                         
                            
                              <div class="login-col"><br>
                                 
                         
-                                    <h2 class="titulo-login">Entrar en Dopcoin</h2>
+                                    <h2 class="titulo-login">Crear usuario</h2>
                                     <p class="titulo-login">Introduzca sus credenciales</p>
             
                              </div>
 
-                            <form  action="login/autenticacion.php" method="post" role="form" id="form_login">
+                            <form  action="app_server/usuarios/registrarusuario.php" method="post" role="form" id="form_login">
                                 <div class="control">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuario o correo" />
+                                    <input type="text" class="form-control" name="username"  placeholder="Nombre de usuario" />
                                 </div>
+                                 <p class="titulo-login2"><a href="olvidopassword.php">Introduzca datos que pueda recordar.</a></p>
                                 <div class="control">
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
+                                    <input type="password" class="form-control" name="password"  placeholder="Introduzca Password" autocomplete="off" />
                                 </div>
-                                  <p class="titulo-login2"><a href="olvidopassword.php">Olvido su password?</a></p>
+                                <p class="titulo-login2"><a href="olvidopassword.php">Use una combinacion de Numeros (1,2,3,4), simbolos(/-*%&$#), letras Mayusculas y minisculas</a></p>
+                                 <div class="control">
+                                    <input type="password" class="form-control"  placeholder="Vuelva a Introducir password" autocomplete="off" />
+                                </div>
+                                  <input type="hidden"  name="id" value="<?php echo $id; ?>" />
                                 <div class="login-button text-center">
-                                    <button type="submit" class="btn btn-info">Ingresar</button>
-                                    <div class="progress hidden" id="login-progress">
-                                       <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
-                                         Ingresando...
-                                       </div>
-                                    </div><br><br>
-                                    <p class="titulo-login"><a href="registrodop.php">Crear una nueva cuenta</a></p>
+                                    <button type="submit" class="btn btn-info">Crear</button>
+                                   
+                                   
                                 </div>
 
                             </form><br><br>
                             <div>
-                               
+                               <?php
+                                 if ($_GET["errorusuario"]=="si"){
+                              ?>
+                                 <div class="alert"><strong style="color:#B71C1C;"> Datos Incorrectos !</strong></div>
+                            <?php
+                                 }
+                             ?>
                               </div>
                         </div>
                               
@@ -123,13 +126,7 @@
             <!-- Javascript -->
             <script type="text/javascript" src="js/app.js"></script>
             <script type="text/javascript" src="js/index.js"></script>
-         <?php
-             session_start();
-             if ($_SESSION["autenticado"] == "SI") {
-             session_destroy();
-             exit();
-             }
-         ?>
+      
 
 </body>
 

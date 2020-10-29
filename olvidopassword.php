@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form action="inicio.php?page=home&id=2" method="post" role="form">
+                                    <form action="index.php?correo=enviado" method="post" role="form">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Direccion de correo electronico *</label>
                                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Introduzca su direccion de correo electronico">

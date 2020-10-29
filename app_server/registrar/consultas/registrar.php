@@ -1,38 +1,32 @@
 <?php  
 	include '../../../coneccion/coneccion.php';
-include '../../../Errores/mostrar_errores.php';
-include '../../../Errores/mostrar_errores2.php';
 
 
+    $correo = $_POST['correo'];
 	$cedula = $_POST['cedula'];
 	$nombre = $_POST['nombre'];
-	$apellido = $_POST['apellido'];
-	$carga = $_POST['carga'];
-	$madsoltera = $_POST['madsoltera'];
+	$direccion= $_POST['direccion'];
+	$ocupacion = $_POST['ocupacion'];
 	$telefono = $_POST['telefono'];
-	$solicitud = $_POST['solicitud'];
-	$departamento= $_POST['departamento'];
-	$fecha = $_POST['fecha'];
-	$municipio = $_POST['municipio'];
-    $sector = $_POST['sector'];
-    $calle = $_POST['calle'];
-    $casa = $_POST['casa'];
-    $nro_hab = $_POST['nro_hab'];
-    $referencia = $_POST['referencia'];
-    $tipo_vivienda = $_POST['tipo_vivienda'];
-    $sit_habit = $_POST['sit_habit'];
-    $sit_salud = $_POST['sitsalud'];
-    $terreno = $_POST['terreno'];
-    $motivo = $_POST['motivo'];
-
+	$wallet = $_POST['wallet'];
+	$cod= $_POST['codreferido'];
+	$banco = $_POST['banco'];
+	$cuenta = $_POST['numcuenta'];
+    $tipocuenta = $_POST['cuenta'];
+    $usuario = $_POST['usuario'];
+    $password = $_POST['password'];
+    $cripto = $_POST['cripto'];
+    $rol = 'admin';
+   
 	
-	$sql = pg_query("INSERT INTO persona(cedula,nombre,apellido,carga,madsoltera,telefono,solicitud,departamento,fecha,municipio,sector,calle,nro_hab,referencia,tipo_vivienda,sit_habit,sit_salud,terreno,motivo,casa) 
-		VALUES ('$cedula','$nombre','$apellido','$carga','$madsoltera','$telefono','$solicitud','$departamento','$fecha','$municipio','$sector','$calle','$nro_hab','$referencia','$tipo_vivienda','$sit_habit','$sit_salud','$terreno','$motivo','$casa')");
+	$sql = pg_query("INSERT INTO persona(correo,nombre,cedula,direccion,ocupacion,telefono,wallet,referido,bancos,cuenta,tipo_cuenta,usuario,password,rol,cripto) 
+		VALUES ('$correo','$nombre','$cedula','$direccion','$ocupacion','$telefono','$wallet','$cod','$banco','$cuenta','$tipocuenta','$usuario','$password','$rol','$cripto')");
 
+  
 
    if ($sql) {
-		header('Location: ../../../inicio.php?page=regexito');//Se guardo
+		header('Location: ../../../index.php?registro=exitoso');//Se guardo
 	}else {
-		header('Location: ../../../inicio.php?page=registrar&mensaje=0');//No se guardo
+		header('Location: ../../../index.php?errorusuario=si');//No se guardo el correo o el pasaporte ya existe !
 	}
 ?>          

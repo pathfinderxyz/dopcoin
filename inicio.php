@@ -3,19 +3,32 @@
 
     $id=$_GET['id'];
         
+    error_reporting(0);
+        
     include "login/seguridad.php";
     //include "Errores/mostrar_errores.php";
     include "coneccion/coneccion.php"; 
 
-    $sql = pg_query("select * from usuarios where id='$id'");
+    $sql = pg_query("select * from persona where id='$id'");
     $row = pg_num_rows($sql);
     if ($row) {
         $info = pg_fetch_assoc($sql);
         $_SESSION['usuario'] = $info['usuario'];
         $_SESSION['rol'] = $info['rol'];
         $_SESSION['id']=$info['id'];
-        $_SESSION['encargado']=$info['encargado'];
-        $_SESSION['color']=$info['color'];
+        $_SESSION['nombre'] = $info['nombre'];
+        $_SESSION['cedula']=$info['cedula'];
+        $_SESSION['correo'] = $info['correo'];
+        $_SESSION['telefono'] = $info['telefono'];
+        $_SESSION['direccion']=$info['direccion'];
+        $_SESSION['referido'] = $info['referido'];
+        $_SESSION['bancos']=$info['bancos'];
+        $_SESSION['tipo_cuenta'] = $info['tipo_cuenta'];
+        $_SESSION['cuenta']=$info['cuenta'];
+        $_SESSION['cripto']=$info['cripto'];
+        $_SESSION['wallet']=$info['wallet'];
+            
+
          
     }
     
@@ -23,7 +36,7 @@
     $m_menu = "";
     
     //Control peticiones por rol
-    if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne' || $_SESSION['rol'] == 'un' || $_SESSION['rol'] == 'esp') { //lo que hace aqui es preguntar :
+    if ($_SESSION['rol'] == 'admin') { //lo que hace aqui es preguntar :
           // si el usuario es tu, da o su entonces si lo que se devolvio por parametros get fue page = xxxxxx entonces llevalo alla 
         if (isset($_GET['page'])) {
             if ($_GET['page'] == 'registrar') {
@@ -56,6 +69,8 @@
                 $file = 'transacciones/compra.php';   
             }elseif ($_GET['page'] == 'venta') {
                 $file = 'transacciones/venta.php';   
+            }elseif ($_GET['page'] == 'story') {
+                $file = 'perfil/historial.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -197,7 +212,7 @@
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="side-menu-container">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="#">
+                            <a class="navbar-brand" href="?page=home">
                                 <div class="logov"><img src="img/icon3.png" width="30px"/> Dopcoin</div>
                             </a>
                             <button type="button" class="navbar-expand-toggle pull-right visible-xs">
@@ -226,9 +241,8 @@
                                                 
                                                  <li><a href="?page=datos">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;&nbsp;Datos</a>
                                                  </li> 
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-ok"></i>&nbsp;&nbsp;&nbsp;Verificar</a>
-                                                 </li>   
-                                                 <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Historial</a>
+                                          
+                                                 <li><a href="?page=story">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Historial</a>
                                                  </li>     
                                           </div>
                                          </div>

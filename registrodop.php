@@ -1,3 +1,7 @@
+<?php
+
+$tab=$_GET['tab'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -52,134 +56,193 @@
     <div class="container">
          <h2 class="titulo-login">Bienvenido al registro de Dopcoin.co</h2>
          <p class="titulo-login">Crypto Exchange  DopCoin SRL | Con este formulario perteneceras a la familia DopCoin , requerimos ciertas informaciones sobre nuestros clientes para poder operar con nosotros. Al llenar el formulario usted acepta los Terminos y Condiciones de DopCoin</p><br>
+                     
+         
 
-         <div class="row">
-                        <div class="col-xs-2">
-                            </div>
-                        <div class="col-xs-8">
+                     <div class="row">
+                        <div class="col-xs-12">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <div class="title">Rellene todos los campos</div>
+                                        <div class="title">Nuevo Registro</div>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form action="inicio.php?page=home&id=2" method="post" role="form">
+                                    <form action="app_server/registrar/consultas/registrar.php" method="post" role="form">
+                                    <div class="step">
+                                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                                            <li role="step" >
+                                                <a href="#step1" id="step1-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true" style="background-color: #eaeaea;">
+                                                    <div class="icon fa fa-truck"></div>
+                                                    <div class="step-title">
+                                                        <div class="title">Usuario</div>
+                                                        <div class="description">Inicio de sesion</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="step" >
+                                                <a href="#step2" role="tab" id="step2-tab" data-toggle="tab" role="tab" aria-controls="profile" style="background-color: #eaeaea;">
+                                                    <div class="icon fa fa-credit-card"></div>
+                                                    <div class="step-title">
+                                                        <div class="title">Datos personales</div>
+                                                        <div class="description">Informacion</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="step" >
+                                                <a href="#step3" role="tab" id="step3-tab" data-toggle="tab" role="tab" aria-controls="profile" style="background-color: #eaeaea;">
+                                                    <div class="icon fa fa-check-circle-o"></div>
+                                                    <div class="step-title">
+                                                        <div class="title">Banco</div>
+                                                         <div class="description">Datos financieros</div>
+                                                        <div class="description"></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="step" >
+                                                <a href="#step4" role="tab" id="step4-tab" data-toggle="tab" role="tab" aria-controls="profile" style="background-color: #eaeaea;">
+                                                    <div class="icon fa fa-check-circle-o"></div>
+                                                    <div class="step-title">
+                                                        <div class="title">Verificacion</div>
+                                                         <div class="description">Registro KYC</div>
+                                                        <div class="description"></div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="step1" aria-labelledby="home-tab">
+                                    <h3>Usuario</h3><br>
+                                             <div class="form-group">
+                                            <label for="exampleInputEmail1">Nombre de Usuario</label>
+                                            <input type="text" class="form-control" name="usuario" placeholder="introduzca un nombre de usuario" required="">
+                                        </div>
                                         <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="Password" class="form-control" name="password"  placeholder="introduzca una contraseña" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Repetir Password</label>
+                                            <input type="Password" class="form-control"  placeholder="vuelva a introducir la contraseña" required="">
+                                        </div><br>
+                                          <a href="#step2" role="tab" id="step1-tab" data-toggle="tab" aria-controls="profile" style="padding: 10px 15px 10px 15px; background-color: #2ca91d; color: #fff; border-radius: 3px;">siguiente</a>
+
+
+                                 </div>
+                                 <div role="tabpanel" class="tab-pane fade" id="step2" aria-labelledby="profile-tab">
+                                   <strong><h3>Datos Personales</h3></strong> <br>
+                                                <div class="form-group">
                                             <label for="exampleInputEmail1">Direccion de correo electronico *</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tu direccion de correo electronico">
+                                            <input type="email" class="form-control" name="correo" placeholder="Tu direccion de correo electronico" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Nombre Completo</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Introduzca nombre y apellido">
+                                            <input type="text" class="form-control" name="nombre"  placeholder="Introduzca nombre y apellido" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Numero de Cedula o Pasaporte</label>
-                                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Introduzca cedula o pasaporte">
+                                            <input type="number" class="form-control" name="cedula"  placeholder="Introduzca cedula o pasaporte" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Direccion de la vivienda*</label>
-                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Direccion">
+                                            <input type="text" class="form-control" name="direccion"  placeholder="Direccion" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Ocupacion y lugar de trabajo</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Introduzca su ocupacion y lugar de trabajo">
+                                            <input type="text" class="form-control" name="ocupacion"  placeholder="Introduzca su ocupacion y lugar de trabajo" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Numero telefonico</label>
-                                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Introduzca su numero telefonico">
+                                            <input type="number" class="form-control" name="telefono"  placeholder="Introduzca su numero telefonico" required="">
                                         </div>
+                                        <label for="exampleInputFile">Criptomoneda</label>
+                                        
+                                        <div>
+                                          <select class="form-control" name="cripto" id="cripto" required="">
+                                                
+                                               <option value=""></option>
+                                               <option value="BTC">BTC</option>
+                                               <option value="ETH">ETH</option>
+                                               <option value="BTC">BTC</option>
+                                               <option value="Dash">Dash</option>
+                                                
+                                        </select>
+                                        
+                                        </div><br>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Wallet Donde Recibira su Crypto. [ WALLET + (BTC - ETH - LTC - Dash) ] - (Puede ser modificada en su orden)</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Introduzca su Wallet">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">CONOCE TU CLIENTE (KYC ) ES UN FORMULARIO QUE DEBE LLENARSE A MANO PARA LUEGO SER SUBIDO JUNTO AL CLIENTE EN LA MISMA FOTOGRAFÍA</label>
-                                            <img src="img/fotokyc.jpeg" align= "center" width="100%">
+                                            <input type="text" class="form-control" name="wallet"  placeholder="Introduzca su Wallet" required="">
                                         </div><br>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">SUBIR HOJA KYC</label>
-                                            <input type="file" id="exampleInputFile">
-                                            <p class="help-block">Suba los datos correctos</p>
-                                        </div><br>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">SUBIR HOJA KYC + CLIENTE</label>
-                                            <input type="file" id="exampleInputFile">
-                                            <p class="help-block">Suba los datos correctos</p>
-                                        </div>
-                                        <div class="form-group">
+                                         <a href="#step3" role="tab" id="step1-tab" data-toggle="tab" aria-controls="profile" style="padding: 10px 15px 10px 15px; background-color: #2ca91d; color: #fff; border-radius: 3px;">siguiente</a>
+                                 </div>
+                                 <div role="tabpanel" class="tab-pane fade" id="step3" aria-labelledby="dropdown3-tab">
+                                    <strong><h3>Banco</h3></strong> <br>
+                                             <div class="form-group">
                                             <label for="exampleInputEmail1">Codigo de referido</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Introduzca su codigo de referido de no poseerlo deje la casilla vacia">
+                                            <input type="text" class="form-control" name="codreferido" placeholder="Introduzca su codigo de referido de no poseerlo deje la casilla vacia">
                                         </div>
                                          <label for="exampleInputFile">Cuenta de banco para pagos o depositos</label>
-                                        <div class="checkbox">
-
-                                          <div class="checkbox3 checkbox-round">
-                                            <input type="checkbox" id="checkbox-1">
-                                            <label for="checkbox-1">
-                                              BANK RESERVAS
-                                            </label>
-                                            <input type="checkbox" id="checkbox-2">
-                                            <label for="checkbox-2">
-                                              BHD LEON
-                                            </label>
-                                            <input type="checkbox" id="checkbox-3">
-                                            <label for="checkbox-3">
-                                              ASOCIACION ROMANA DE AHORRO Y PRESTMOS
-                                            </label>
-                                            <input type="checkbox" id="checkbox-4">
-                                            <label for="checkbox-4">
-                                              BANCO ADEMI
-                                            </label>
-                                            <input type="checkbox" id="checkbox-7">
-                                            <label for="checkbox-7">
-                                              SCOTIABANK
-                                            </label>
-                                            <input type="checkbox" id="checkbox-8">
-                                            <label for="checkbox-8">
-                                              BANCO DEL PROGRESO
-                                            </label>
-                                            <input type="checkbox" id="checkbox-9">
-                                            <label for="checkbox-9">
-                                              BANCO VIMENCA
-                                            </label>
-                                            <input type="checkbox" id="checkbox-10">
-                                            <label for="checkbox-10">
-                                              BANCO BDI
-                                            </label>
-                                            <input type="checkbox" id="checkbox-11">
-                                            <label for="checkbox-11">
-                                              BANCO POPULAR ( LBTR y ACH )
-                                            </label>
-                                          </div>
-                                        </div>
+                                         <div>
+                                          <select class="form-control" name="banco" id="banco" required="">
+                                                
+                                               <option value=""></option>
+                                               <option value="BANK RESERVAS">BANK RESERVAS</option>
+                                               <option value="EBHD LEON">BHD LEON</option>
+                                               <option value="ASOCIACION ROMANA DE AHORRO Y PRESTAMOS">ASOCIACION ROMANA DE AHORRO Y PRESTAMOS</option> 
+                                               <option value="BANCO ADEMI">BANCO ADEMI</option>
+                                               <option value="SCOTIABANK">SCOTIABANK</option>
+                                                <option value="BANCO DEL PROGRESO">BANCO DEL PROGRESO</option>
+                                               <option value="BANCO VIMENCA">BANCO VIMENCA</option>
+                                                <option value="BANCO BDI">BANCO BDI</option>
+                                                <option value="BANCO POPULAR">BANCO POPULAR ( LBTR y ACH )</option>
+                                                
+                                        </select>
+                                      </div><br>
+                                       
+                                           
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Numero de cuenta</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Introduzca su numero de cuenta">
+                                            <input type="number" class="form-control" name="numcuenta" placeholder="Introduzca su numero de cuenta">
                                         </div>
                                         <label for="exampleInputFile">Tipo de cuenta</label>
-                                        <div class="checkbox">
-
-                                          <div class="checkbox3 checkbox-round">
-                                            <input type="checkbox" id="checkbox-13">
-                                            <label for="checkbox-13">
-                                              CUENTA CORRIENTE
-                                            </label>
-                                            <input type="checkbox" id="checkbox-14">
-                                            <label for="checkbox-14">
-                                              CUENTA AHORRO
-                                            </label>
-                                          </div>
+                                        <div>
+                                          <select class="form-control" name="cuenta" id="cuenta" required="">
+                                                
+                                               <option value=""></option>
+                                               <option value="Cuenta Corriente">Cuenta Corriente</option>
+                                               <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
+                                                
+                                        </select>
                                         </div><br>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">TRANSFERENCIAS LTBR y ACH.</label>
                                             <p>Las ventas menores a ( 5000 $ ) DOP No aplican para transferencias LTBR al menos que el cliente acepte los costo de dicha transferencia ( 100 $ ) DOP.<br><br>-ACH:la transaccion se reflejara en la cuenta destino dentro de un periodo de 1 a 24 horas;<br><br>-LBTR: la transaccion se efectuara en tiempo real, con un costo por comision.De lunes a viernes en horario de 8:00AM a 4:00PM., toda transaccion realizada en o fuera del horario antes indicado, sera procesada con fecha valor del siguiente dia laborable.</p>
+                                        </div><br>
+                                         <a href="#step4" role="tab" id="step1-tab" data-toggle="tab" aria-controls="profile" style="padding: 10px 15px 10px 15px; background-color: #2ca91d; color: #fff; border-radius: 3px;">siguiente</a>
+                                </div>
+
+                                 <div role="tabpanel" class="tab-pane fade" id="step4" aria-labelledby="dropdown4-tab">
+                                    <strong><h3>Verificacion</h3></strong> <br>
+                                          <div class="form-group">
+                                            <label for="exampleInputPassword1">CONOCE TU CLIENTE (KYC ) ES UN FORMULARIO QUE DEBE LLENARSE A MANO PARA LUEGO SER SUBIDO JUNTO AL CLIENTE EN LA MISMA FOTOGRAFÍA</label>
+                                            <img src="img/fotokyc.jpeg"  align= "center" width="100%">
+                                        </div><br>
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">SUBIR HOJA KYC</label>
+                                            <input type="file" name="fotokyc" >
+                                            <p class="help-block">Suba los datos correctos</p>
+                                        </div><br>
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">SUBIR HOJA KYC + CLIENTE</label>
+                                            <input type="file" name="fotokyccliente"id="exampleInputFile">
+                                            <p class="help-block">Suba los datos correctos</p>
                                         </div>
+                                        
                                         <label for="exampleInputFile">Acepta los terminos sobre el tiempo en las transferencia LTBR y ACH. <a href="https://bit.ly/2K0no0y">(Leer Aqui)</a></label>
                                         <div class="checkbox">
 
                                           <div class="checkbox3 checkbox-round">
-                                            <input type="checkbox" id="checkbox-19">
+                                            <input type="checkbox" id="checkbox-19" required="">
                                             <label for="checkbox-19">
                                               Si Acepto
                                             </label>
@@ -189,20 +252,22 @@
                                         <div class="checkbox">
 
                                           <div class="checkbox3 checkbox-round">
-                                            <input type="checkbox" id="checkbox-191">
+                                            <input type="checkbox" id="checkbox-191" required="">
                                             <label for="checkbox-191">
                                               Si Acepto
                                             </label>
                                           </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-info">Registrar</button>
+                                        <button type="submit" class="btn btn-success">Registrar</button>
+                                        <button type="button" class="btn btn-info" name="Cancelar" class="btn btn-dark" onClick="location.href='index.php'">Cancelar</button> 
+                                    </div>
+                                 </div>
+                                    </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-2">
-                            </div>
                     </div>
         
     </div>
@@ -221,13 +286,7 @@
             <!-- Javascript -->
             <script type="text/javascript" src="js/app.js"></script>
             <script type="text/javascript" src="js/index.js"></script>
-         <?php
-             session_start();
-             if ($_SESSION["autenticado"] == "SI") {
-             session_destroy();
-             exit();
-             }
-         ?>
+       
 
 </body>
 
