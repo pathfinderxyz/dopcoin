@@ -1,4 +1,5 @@
 <?php 
+    
     session_start();
 
     $id=$_GET['id'];
@@ -8,6 +9,11 @@
     include "login/seguridad.php";
     //include "Errores/mostrar_errores.php";
     include "coneccion/coneccion.php"; 
+
+    $sqld = pg_query("SELECT * from dopcoin");
+    $rowd = pg_fetch_assoc($sqld);
+  
+
 
     $sql = pg_query("select * from persona where id='$id'");
     $row = pg_num_rows($sql);
@@ -36,7 +42,7 @@
     $m_menu = "";
     
     //Control peticiones por rol
-    if ($_SESSION['rol'] == 'admin') { //lo que hace aqui es preguntar :
+    if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'cliente') { //lo que hace aqui es preguntar :
           // si el usuario es tu, da o su entonces si lo que se devolvio por parametros get fue page = xxxxxx entonces llevalo alla 
         if (isset($_GET['page'])) {
             if ($_GET['page'] == 'registrar') {
@@ -75,6 +81,16 @@
                 $file = 'perfil/verificacion.php';   
             }elseif ($_GET['page'] == 'verificando') {
                 $file = 'perfil/smsverificando.php';   
+            }elseif ($_GET['page'] == 'alluser') {
+                $file = 'administracion/all_user.php';   
+            }elseif ($_GET['page'] == 'delete') {
+                $file = 'administracion/modaldelete.php';   
+            }elseif ($_GET['page'] == 'operacion') {
+                $file = 'administracion/operacion.php';   
+            }elseif ($_GET['page'] == 'homeadmin') {
+                $file = 'homeadmin.php';   
+            }elseif ($_GET['page'] == 'precio') {
+                $file = 'administracion/precio_dop.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -152,40 +168,17 @@
                         <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">LTC/USD  12,12</a>
                         </li>
                          <li>
-                        <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">DOP/USD  11,11</a>
+                        <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">DOP/USD  <?php echo $rowd['precio_compra'];?></a>
                         </li>
+                       
                         <li>
-                        <a href="#" class="mitooltip" title="Visite su Billetera" data-placement="top">Mi Wallet</a>
+                        <a href="#" class="mitooltip" title="Usuario Logeado" data-placement="top"><?php echo $_SESSION['nombre'];?></a>
                         </li>
-                        <li>
-                        <a href="#" class="mitooltip" title="Usuario Logeado" data-placement="top"><?php echo $_SESSION['encargado'];?></a>
-                        </li>
-                        <?php
-                            $solpend = pg_query("select count(id) as total1 from solicitud where estado='pendiente'");
-                            $sp = pg_fetch_assoc($solpend);
-                            $comrep = pg_query("select count(serial) as total2 from comp_enreparacion");
-                            $cr = pg_fetch_assoc($comrep);
-                        ?>
-                     <!--    <?php  
-                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne') {
-                                     echo '
-                        <li>
-                        <a href="?page=registrar" class="mitooltip" title="Registrar" data-placement="top"><i class="fa fa-plus"></i></a>
-                        </li>';}
-                        ?> -->
-                      <!--
-                       <?php  
-                                  if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'bne' || $_SESSION['rol'] == 'esp') {
-                                     echo '
-                        <li>
-                        <a href="?page=buscar" class="mitooltip" title="Buscar" data-placement="top"><i class="fa fa-search"></i></a>
-                        </li>';
-                             }
-                             ?> -->
-
+                       
+                 
 
                         <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" class="mitooltip" title="Notificaciones" data-placement="top"><i class="fa fa-exclamation-circle"></i>&nbsp<?php echo $sp['total1']+$cr['total2']; ?></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" class="mitooltip" title="Notificaciones" data-placement="top"><i class="fa fa-exclamation-circle"></i></a>
                             <ul class="dropdown-menu  animated fadeInDown">
                                 <li class="title">
                                     Notificaciones <span class="badge pull-right"></span>
@@ -225,15 +218,30 @@
                         </div>
                         <ul class="nav navbar-nav">
                         
-                                  <li class="panel panel-default dropdown ">
-                                         <a href="?page=home">
-                                             <span class="icon glyphicon glyphicon-home"></span><span class="title">Inicio</span>
-                                         </a>
-                                     </li>
+                               
+                                <?php  
+                                  if ($_SESSION['rol'] == 'cliente') {
+                                     echo ' <li>
+                                  <a href="?page=home">
+                                    <span class="icon glyphicon glyphicon-home"></span><span class="title">Inicio</span>
+                                  </a>
+                                 </li>';
+                                         }
+                                 ?>
+
+                                <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo ' <li>
+                                  <a href="?page=homeadmin">
+                                    <span class="icon glyphicon glyphicon-home"></span><span class="title">Inicio</span>
+                                  </a>
+                                 </li>';
+                                         }
+                                 ?>
 
                             
                                  <?php  
-                                  if ($_SESSION['rol'] == 'admin') {
+                                  if ($_SESSION['rol'] == 'cliente') {
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-element">
                                              <span class="icon glyphicon glyphicon-user"></span><span class="title">Perfil</span>
@@ -248,21 +256,15 @@
                                                  <li><a href="?page=verificar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-check"></i>&nbsp;&nbsp;&nbsp;Verificacion</a>
                                                  </li> 
                                           
-                                                 <li><a href="?page=story">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Historial</a>
+                                                 <li><a href="?page=story">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Mis operaciones</a>
                                                  </li>     
                                           </div>
                                          </div>
                                      </li>';
                                          }
                                  ?>
-                                 <li class="panel panel-default dropdown ">
-                                         <a href="?page=vip">
-                                             <span class="icon glyphicon glyphicon-star"></span><span class="title">VIP</span>
-                                         </a>
-                            </li> 
-                             
-                                 <?php  
-                                  if ($_SESSION['rol'] == 'admin') {
+                                    <?php  
+                                  if ($_SESSION['rol'] == 'cliente') {
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-elementt">
                                              <span class="icon glyphicon glyphicon-transfer"></span><span class="title">Transacciones</span>
@@ -281,11 +283,64 @@
                                      </li>';
                                          }
                                  ?>
+                                 <?php  
+                                  if ($_SESSION['rol'] == 'cliente') {
+                                     echo '<li>
+                                         <a href="?page=vip">
+                                             <span class="icon glyphicon glyphicon-star"></span><span class="title">VIP</span>
+                                         </a>
+                                 </li>';
+                                         }
+                                 ?> 
+                             
+                              
+
+                                 <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo '<li class="panel panel-default dropdown ">
+                                         <a data-toggle="collapse" href="#dropdown-admin">
+                                             <span class="icon glyphicon glyphicon-tasks"></span><span class="title">Administracion</span>
+                                         </a>
+                                         <!-- Dropdown level 1 -->
+                                         <div id="dropdown-admin" class="panel-collapse collapse">
+                                         <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                
+                                                 <li><a href="?page=alluser">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;Usuarios</a>
+                                                 </li> 
+                                                 <li><a href="?page=operacion">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Operaciones</a>
+                                                 </li> 
+                                          
+                                                     
+                                          </div>
+                                         </div>
+                                     </li>';
+                                         }
+                                 ?>
+                                       <?php  
+                                  if ($_SESSION['rol'] == 'admin') {
+                                     echo '<li class="panel panel-default dropdown ">
+                                         <a data-toggle="collapse" href="#dropdown-config">
+                                             <span class="icon glyphicon glyphicon-cog"></span><span class="title">Configuracion</span>
+                                         </a>
+                                         <!-- Dropdown level 1 -->
+                                         <div id="dropdown-config" class="panel-collapse collapse">
+                                         <div class="panel-body">
+                                             <ul class="nav navbar-nav">
+                                                
+                                                 <li><a href="?page=precio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-usd"></i>&nbsp;&nbsp;&nbsp;Precio Dopcoin</a>
+                                                 </li> 
+                                                   
+                                          </div>
+                                         </div>
+                                     </li>';
+                                         }
+                                 ?>
                                 
                         
                              
                             <!-- Dropdown-->
-                            <li class="panel panel-default dropdown">
+                             <li>
                                 <a href="login/logout.php">
                                     <span class="icon glyphicon glyphicon-off"></span><span class="title">Salir</span>
                                 </a>

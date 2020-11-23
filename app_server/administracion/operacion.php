@@ -1,10 +1,9 @@
 <?php 
      
     include '../../coneccion/coneccion.php';
-    $idpeople = $_SESSION['id'];
 
      
-    $sql = pg_query("SELECT * FROM operaciones where id_operario='$idpeople'");
+    $sql = pg_query("SELECT * FROM operaciones");
     $row = pg_fetch_assoc($sql);
     $row = pg_num_rows($sql);
     
@@ -16,7 +15,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">
-                                    <div class="title">Historial de operaciones en Dopcoin</div>
+                                    <div class="title">Operaciones de los Usuarios</div>
                                     </div>
                                 </div>
                                 
@@ -35,12 +34,14 @@
                                         <table class="datatable table table-striped" cellspacing="0" width="100%">
                                             <thead color="#000000">
                                                 <tr>
-                                                    <th>Tipo de operacion</th>
+                                                    <th>Cod Usuario</th>
                                                     <th>Fecha</th>
                                                     <th>Codigo de transaccion</th>
-                                                    
+                                                    <th>Tipo de operacion</th>
                                                     <th>Cantidad (dopcoin)</th>
                                                     <th>Monto ($)</th>
+                                                    <th>Wallet a Enviar</th>
+                                                    <th>Wallet a Recibir</th>
                                                     <th>status</th>
                                                    
                                                 </tr>
@@ -49,14 +50,15 @@
                                                 <?php
                                                      if ($row) {
                                                          while ($info = pg_fetch_assoc($sql)) {
-                                                        
                                                      echo '<tr>
-                                                             <td  class="'.$info['color'].'">'.$info['tipo_operacion'].'</td>
+                                                             <td>'.$info['id_operario'].'</td>
                                                              <td>'.$info['fecha'].'</td>
                                                              <td>#'.$info['codigo'].'</td>
-                                                             
+                                                             <td>'.$info['tipo_operacion'].'</td>
                                                              <td>DOP '.$info['cantidad_dopcoin'].'</td>
                                                              <td>$'.$info['monto'].'</td>
+                                                             <td>'.$info['wallet_dopcoin'].'</td>
+                                                             <td>'.$info['wallet_recep'].'</td>
                                                              <td>'.$info['status'].'</td>                                                 
                                                           </tr>';
                                                          }

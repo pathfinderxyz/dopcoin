@@ -16,7 +16,7 @@
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
     $cripto = $_POST['cripto'];
-    $rol = 'admin';
+    $rol = 'cliente';
    
 	
 	$sql = pg_query("INSERT INTO persona(correo,nombre,cedula,direccion,ocupacion,telefono,wallet,referido,bancos,cuenta,tipo_cuenta,usuario,password,rol,cripto) 

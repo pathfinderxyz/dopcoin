@@ -1,5 +1,11 @@
-                   
-                
+        <style type="text/css">
+         .button, input, select, textarea {
+             
+             border: 0px !important;
+          }
+
+        </style>           
+            <!--    <form class="form-inline" action="app_server/registrar/updateinfo.php" method="post"> -->
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="card">
@@ -15,27 +21,27 @@
                                         <table class="table table-bordered table-responsive">
                                             <tr>
                                                 <td><code>Nombre y Apellido</code></td>
-                                                <td><?php echo $_SESSION['nombre'];?></td>
+                                                <td> <input type="text" name="nombre"  placeholder="<?php echo $_SESSION['nombre'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Cedula de identidad</code></td>
-                                                <td><?php echo $_SESSION['cedula'];?></td>
+                                                <td><input type="text" name="cedula" placeholder="<?php echo $_SESSION['cedula'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Correo Electronico</code></td>
-                                                <td><?php echo $_SESSION['correo'];?></td>
+                                                <td><input type="text" name="correo"  placeholder="<?php echo $_SESSION['correo'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Numero de telefono</code></td>
-                                                <td><?php echo $_SESSION['telefono'];?></td>
+                                                <td><input type="text" name="telefono"  placeholder="<?php echo $_SESSION['telefono'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Direccion</code></td>
-                                                <td><?php echo $_SESSION['direccion'];?></td>
+                                                <td><input type="text" name="direccion" placeholder="<?php echo $_SESSION['direccion'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Numero de referencia</code></td>
-                                                <td><?php echo $_SESSION['referido'];?></td>
+                                                <td><input type="text" name="referido"  placeholder="<?php echo $_SESSION['referido'];?>"></td>
                                             </tr>
                                             
                                         </table>
@@ -58,19 +64,19 @@
                                         <table class="table table-bordered table-responsive">
                                             <tr>
                                                 <td><code>Banco</code></td>
-                                                <td><?php echo $_SESSION['bancos'];?></td>
+                                                <td><input type="text" name="bancos" placeholder="<?php echo $_SESSION['bancos'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Nombre</code></td>
-                                                <td><?php echo $_SESSION['nombre'];?></td>
+                                                <td><input type="text" name="nombre2" placeholder="<?php echo $_SESSION['nombre'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Tipo de cuenta</code></td>
-                                                <td><?php echo $_SESSION['tipo_cuenta'];?></td>
+                                                <td><input type="text" name="tipo_cuenta" placeholder="<?php echo $_SESSION['tipo_cuenta'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Numero</code></td>
-                                                <td><?php echo $_SESSION['cuenta'];?></td>
+                                                <td><input type="text" name="cuenta" placeholder="<?php echo $_SESSION['cuenta'];?>"></td>
                                             </tr>
                                             
                                             
@@ -96,11 +102,11 @@
                                         <table class="table table-bordered table-responsive">
                                             <tr>
                                                 <td><code>Criptomoneda</code></td>
-                                                <td><?php echo $_SESSION['cripto'];?></td>
+                                                <td><input type="text" name="cripto" placeholder="<?php echo $_SESSION['cripto'];?>"></td>
                                             </tr>
                                             <tr>
                                                 <td><code>Wallet</code></td>
-                                                <td><?php echo $_SESSION['wallet'];?></td>
+                                                <td><input type="text" name="wallet" placeholder="<?php echo $_SESSION['wallet'];?>"></td>
                                             </tr>
                                             
                                             
@@ -113,5 +119,8 @@
                         </div>
                         
                     </div>
+                       <!--<input type="hidden" name="iduser" value="<?php echo $_SESSION['id'] ;?>">
+                   <button type="submit" class="btn btn-info">Actualizar</button>-->
+                </form>    <br><br>
 
                    

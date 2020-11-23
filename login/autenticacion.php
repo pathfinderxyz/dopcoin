@@ -15,7 +15,14 @@ if (pg_num_rows($result) > '0'){
 	$info = pg_fetch_assoc($result);
        
     $_SESSION["autenticado"]= "SI";
-    header ("Location: ../inicio.php?page=home&id=".$info['id']."");
+
+    if ($info['rol'] == 'admin') {
+    	 header ("Location: ../inicio.php?page=homeadmin&id=".$info['id']."");
+    }
+    else{
+         header ("Location: ../inicio.php?page=home&id=".$info['id']."");
+    }
+   
 
 }else {
 

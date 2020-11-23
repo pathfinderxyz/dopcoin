@@ -1,22 +1,21 @@
 <?php 
      
     include '../../coneccion/coneccion.php';
-    $idpeople = $_SESSION['id'];
+    
 
      
-    $sql = pg_query("SELECT * FROM operaciones where id_operario='$idpeople'");
-    $row = pg_fetch_assoc($sql);
+    $sql = pg_query("SELECT * FROM persona");
     $row = pg_num_rows($sql);
     
 ?>
-      
-            
+            <form>
+            <br>
             <div class="row">
                         <div class="col-xs-12">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="card-title">
-                                    <div class="title">Historial de operaciones en Dopcoin</div>
+                                    <div class="title">Usuarios Registrados</div>
                                     </div>
                                 </div>
                                 
@@ -35,30 +34,32 @@
                                         <table class="datatable table table-striped" cellspacing="0" width="100%">
                                             <thead color="#000000">
                                                 <tr>
-                                                    <th>Tipo de operacion</th>
-                                                    <th>Fecha</th>
-                                                    <th>Codigo de transaccion</th>
-                                                    
-                                                    <th>Cantidad (dopcoin)</th>
-                                                    <th>Monto ($)</th>
-                                                    <th>status</th>
-                                                   
+                                                    <th>Codigo</th>
+                                                    <th>Nombre</th>
+                                                    <th>Cedula</th>
+                                                    <th>Correo</th>
+                                                    <th>Telefono</th>
+                                                    <th>Direccion</th>
+                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                      if ($row) {
                                                          while ($info = pg_fetch_assoc($sql)) {
-                                                        
                                                      echo '<tr>
-                                                             <td  class="'.$info['color'].'">'.$info['tipo_operacion'].'</td>
-                                                             <td>'.$info['fecha'].'</td>
-                                                             <td>#'.$info['codigo'].'</td>
-                                                             
-                                                             <td>DOP '.$info['cantidad_dopcoin'].'</td>
-                                                             <td>$'.$info['monto'].'</td>
-                                                             <td>'.$info['status'].'</td>                                                 
-                                                          </tr>';
+                                                             <td>'.$info['id'].'</td>
+                                                             <td>'.$info['nombre'].'</td>
+                                                             <td>'.$info['cedula'].'</td>
+                                                             <td>'.$info['correo'].'</td>
+                                                             <td>'.$info['telefono'].'</td>
+                                                             <td>'.$info['direccion'].'</td>
+                                                            
+                                                             <td ><a class="btn btn-danger" <a href="?page=delete&idcliente='.$info['id'].'" ><i class="icon-close"></i> Eliminar</a></td>
+                                                              </td>                                                 
+                                                          </tr>
+                                                 
+                                                       ';
                                                          }
                                                      }else{
 
@@ -72,3 +73,6 @@
                             </div>
                         </div>
                     </div>
+
+
+           
