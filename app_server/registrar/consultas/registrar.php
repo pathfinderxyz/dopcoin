@@ -17,10 +17,12 @@
     $password = $_POST['password'];
     $cripto = $_POST['cripto'];
     $rol = 'cliente';
+    $status_vip= 'No activo';
+    $vip = 'No';
    
 	
-	$sql = pg_query("INSERT INTO persona(correo,nombre,cedula,direccion,ocupacion,telefono,wallet,referido,bancos,cuenta,tipo_cuenta,usuario,password,rol,cripto) 
-		VALUES ('$correo','$nombre','$cedula','$direccion','$ocupacion','$telefono','$wallet','$cod','$banco','$cuenta','$tipocuenta','$usuario','$password','$rol','$cripto')");
+	$sql = pg_query("INSERT INTO persona(correo,nombre,cedula,direccion,ocupacion,telefono,wallet,referido,bancos,cuenta,tipo_cuenta,usuario,password,rol,cripto,vip,status_vip) 
+		VALUES ('$correo','$nombre','$cedula','$direccion','$ocupacion','$telefono','$wallet','$cod','$banco','$cuenta','$tipocuenta','$usuario','$password','$rol','$cripto','$vip','$status_vip')");
 
   
 

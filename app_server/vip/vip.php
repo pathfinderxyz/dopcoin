@@ -1,3 +1,12 @@
+<?php
+
+include '../../coneccion/coneccion.php';
+
+$sql = pg_query("SELECT * from dopcoinvip");
+$row = pg_fetch_assoc($sql);
+
+
+?>  
 <style type="text/css">
     .colorwe{ 
       text-align: center;
@@ -29,13 +38,13 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <strong><h3>Compra</h3></strong>
-                                            <a href="#">
+                                            <a href="?page=compravip">
                                                 <div class="card blue summary-inline">
                                                     <div class="card-body">
                                                         <i class="icon fa fa-usd fa-4x"></i>
                                                         <div class="content">
-                                                            <div class="title">50</div>
-                                                            <div class="sub-title">Dopcoin</div>
+                                                            <div class="title"><?php echo $row['precio_compra'];?></div>
+                                                            <div class="sub-title">USD</div>
                                                         </div>
                                                         <div class="clear-both"></div>
                                                     </div>
@@ -44,19 +53,19 @@
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12"><br><br><br>
                                             <div class="sub-title" >
-                                                <p class="colorwe">Minimo: XXXXXXXX</p><br>
-                                                <p>Via:XXXXXXX</p>
+                                                <p class="colorwe">Minimo: <?php echo $row['minimo'];?> Dopcoin</p><br>
+                                                <p>VIA: BTC/ETH/LTC/TRANSFERENCIA</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <strong><h3>Venta</h3></strong>
-                                            <a href="#">
+                                            <a href="?page=ventavip">
                                                 <div class="card blue summary-inline">
                                                     <div class="card-body">
                                                         <i class="icon fa fa-usd fa-4x"></i>
                                                         <div class="content">
-                                                            <div class="title">49</div>
-                                                            <div class="sub-title">Dopcoin</div>
+                                                            <div class="title"><?php echo $row['precio_venta'];?></div>
+                                                            <div class="sub-title">USD</div>
                                                         </div>
                                                         <div class="clear-both"></div>
                                                     </div>
@@ -72,56 +81,7 @@
                     
             
             
-                    <div class="row">
-                        <div class="col-xs-9">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                    <div class="title">Oferta Unicas VIP</div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="panel panel-default">
-                                        
-                                        <table class="table" .active >
-                                            <thead>
-                                                <tr class="info">
-                                                    <th>Monto</th>
-                                                    <th>Tasa</th>
-                                                    <th>Banco</th>
-                                                    <th>tiempo de posteo</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th>10000 $ USDT</th>
-                                                    <td>52 Dopcoin</td>
-                                                    <td>Reservas</td>
-                                                    <td>Hace 30 min</td>
-                                                    <th scope="row"><a href="">Aceptar</a>   <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></th>
-                                                </tr>
-                                                <tr>
-                                                    <th>10000 $ USDT</th>
-                                                    <td>52 Dopcoin</td>
-                                                    <td>Reservas</td>
-                                                    <td>Hace 30 min</td>
-                                                    <th scope="row"><a href="">Aceptar</a>   <i class="fa fa-star"></i></th>
-                                                </tr>
-                                                <tr>
-                                                    <th>10000 $ USDT</th>
-                                                    <td>52 Dopcoin</td>
-                                                    <td>Reservas</td>
-                                                    <td>Hace 30 min</td>
-                                                    <th scope="row"><a href="">Aceptar</a>   <i class="fa fa-star"></i> <i class="fa fa-star"></i></th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
         </div>
         </div>
     </body>

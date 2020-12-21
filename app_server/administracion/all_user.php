@@ -40,7 +40,8 @@
                                                     <th>Correo</th>
                                                     <th>Telefono</th>
                                                     <th>Direccion</th>
-                                                     <th>Acciones</th>
+                                                    <th>Status VIP</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -54,8 +55,10 @@
                                                              <td>'.$info['correo'].'</td>
                                                              <td>'.$info['telefono'].'</td>
                                                              <td>'.$info['direccion'].'</td>
+                                                             <td>'.$info['status_vip'].'</td>
                                                             
-                                                             <td ><a class="btn btn-danger" <a href="?page=delete&idcliente='.$info['id'].'" ><i class="icon-close"></i> Eliminar</a></td>
+                                                             <td ><a class="btn btn-danger" <a href="?page=delete&idcliente='.$info['id'].'" ><i class="icon-close"></i> Eliminar</a>
+                                                             <a class="btn btn-success" <a href="?page=statusvip&idcliente='.$info['id'].'" ><i class="icon-close"></i>Status VIP</a>
                                                               </td>                                                 
                                                           </tr>
                                                  

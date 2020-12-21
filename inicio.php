@@ -33,11 +33,13 @@
         $_SESSION['cuenta']=$info['cuenta'];
         $_SESSION['cripto']=$info['cripto'];
         $_SESSION['wallet']=$info['wallet'];
+        $_SESSION['status_vip']=$info['status_vip'];
             
 
          
     }
     
+
     $file = "";//Vista a cargar
     $m_menu = "";
     
@@ -91,6 +93,18 @@
                 $file = 'homeadmin.php';   
             }elseif ($_GET['page'] == 'precio') {
                 $file = 'administracion/precio_dop.php';   
+            }elseif ($_GET['page'] == 'haztevip') {
+                $file = 'vip/haztevip.php';   
+            }elseif ($_GET['page'] == 'statusvip') {
+                $file = 'vip/statusvip.php';   
+            }elseif ($_GET['page'] == 'preciovip') {
+                $file = 'administracion/preciodopvip.php';   
+            }elseif ($_GET['page'] == 'minimosvip') {
+                $file = 'administracion/minimosvip.php';   
+            }elseif ($_GET['page'] == 'compravip') {
+                $file = 'transacciones/compravip.php';   
+            }elseif ($_GET['page'] == 'ventavip') {
+                $file = 'transacciones/ventavip.php';   
             }
         }else{
             $file = 'inicio.php';  
@@ -130,6 +144,7 @@
         margin-top: -2px;
        
       }
+     
 
     </style>
 
@@ -241,7 +256,10 @@
 
                             
                                  <?php  
+
                                   if ($_SESSION['rol'] == 'cliente') {
+                                    
+                                    
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-element">
                                              <span class="icon glyphicon glyphicon-user"></span><span class="title">Perfil</span>
@@ -257,7 +275,13 @@
                                                  </li> 
                                           
                                                  <li><a href="?page=story">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;&nbsp;Mis operaciones</a>
-                                                 </li>     
+                                                 </li>  ';?>
+                                                 <?php
+                                                 if ($_SESSION['status_vip'] != 'activo') {
+                                                   echo '<li><a href="?page=haztevip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-star"></i>&nbsp;&nbsp;&nbsp;Hazte VIP !</a>
+                                                 </li>   ';}
+                                                 ?>
+                                                 <?php echo '
                                           </div>
                                          </div>
                                      </li>';
@@ -265,6 +289,7 @@
                                  ?>
                                     <?php  
                                   if ($_SESSION['rol'] == 'cliente') {
+                                    
                                      echo '<li class="panel panel-default dropdown ">
                                          <a data-toggle="collapse" href="#dropdown-elementt">
                                              <span class="icon glyphicon glyphicon-transfer"></span><span class="title">Transacciones</span>
@@ -284,7 +309,7 @@
                                          }
                                  ?>
                                  <?php  
-                                  if ($_SESSION['rol'] == 'cliente') {
+                                  if ($_SESSION['rol'] == 'cliente' and $_SESSION['status_vip'] == 'activo') {
                                      echo '<li>
                                          <a href="?page=vip">
                                              <span class="icon glyphicon glyphicon-star"></span><span class="title">VIP</span>
@@ -329,6 +354,10 @@
                                              <ul class="nav navbar-nav">
                                                 
                                                  <li><a href="?page=precio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-usd"></i>&nbsp;&nbsp;&nbsp;Precio Dopcoin</a>
+                                                 </li> 
+                                                  <li><a href="?page=preciovip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-usd"></i>&nbsp;&nbsp;&nbsp;Precio Dopcoin VIP</a>
+                                                 </li> 
+                                                  <li><a href="?page=minimosvip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon glyphicon glyphicon-sort"></i>&nbsp;&nbsp;&nbsp;Minimos VIP</a>
                                                  </li> 
                                                    
                                           </div>

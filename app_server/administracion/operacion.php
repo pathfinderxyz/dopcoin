@@ -43,6 +43,7 @@
                                                     <th>Wallet a Enviar</th>
                                                     <th>Wallet a Recibir</th>
                                                     <th>status</th>
+                                                    <th>Observacion</th>
                                                    
                                                 </tr>
                                             </thead>
@@ -59,7 +60,8 @@
                                                              <td>$'.$info['monto'].'</td>
                                                              <td>'.$info['wallet_dopcoin'].'</td>
                                                              <td>'.$info['wallet_recep'].'</td>
-                                                             <td>'.$info['status'].'</td>                                                 
+                                                             <td>'.$info['status'].'</td>    
+                                                             <td>'.$info['vip'].'</td>                                              
                                                           </tr>';
                                                          }
                                                      }else{
